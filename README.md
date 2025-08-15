@@ -1,3 +1,53 @@
+灌灌灌灌会更好
+法国公关部
+方法反反复复反反复复
+
+
+反反复复反反复复凤飞飞
+
+
+
+
+
+
+
+
+反反复复反反复复凤飞飞发发发
+
+
+反反复复凤飞飞反反复复方法
+
+
+
+
+
+
+
+
+滴答滴答滴答滴答滴答滴答哒哒哒哒哒哒大V
+
+
+
+
+
+
+的点点滴滴的点点滴滴哒哒哒哒哒哒
+的点点滴滴的点点滴滴哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒
+
+
+
+
+
+
+
+
+
+
+对对对对对对的点点滴滴哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒哒但是事实上事实上事实上是撒是撒是撒是撒是撒是撒是撒是撒是撒是撒是撒
+额滴答滴答滴答滴答滴滴答答哒哒哒哒哒哒哒哒哒哒哒哒
+
+
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -21,7 +71,7 @@
     position: absolute;
     padding: 5px 10px;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 16px; /* 字号稍微小一点 */
     font-weight: bold;
     white-space: nowrap;
     box-sizing: border-box;
@@ -78,7 +128,7 @@ function createDanmu(text) {
   danmu.className = 'danmu';
   danmu.textContent = text;
 
-  const centerX = window.innerWidth / 2;
+  const centerX = window.innerWidth / 2 - 100; // 向左偏移100px
   const centerY = window.innerHeight / 2;
 
   danmu.style.left = (centerX + (Math.random()-0.5)*400) + 'px';
