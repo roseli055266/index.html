@@ -21,10 +21,10 @@
     position: absolute;
     padding: 5px 10px;
     border-radius: 5px;
-    background: #FFFFFF;
     font-size: 18px;
     font-weight: bold;
     white-space: nowrap;
+    box-sizing: border-box;
   }
 </style>
 </head>
@@ -57,7 +57,20 @@ const danmuList = [
   '无聊，低俗！到底是谁在看团播',
   '脱下孔乙己长衫，穿上擦边戏服😅',
   '就这水平？我感觉我上也能行',
-  '明星‘再就业’？内娱我看不懂了！'
+  '明星‘再就业’？内娱我看不懂了！',
+  '每天播够六小时才算达标，这工时比流水线还狠吧',
+  '签约三年不能解约，违约金高得能压垮普通家庭',
+  '表面光鲜亮丽，其实连社保都没人给缴',
+  '团播合同全是坑，谁敢去？！',
+  '其实都是资本的圈钱工具',
+  '团播就是吃青春饭罢了',
+  '每天练舞到凌晨，月薪还没服务员高',
+  '团播到期就失业，没学历没技能，转行都难',
+  '为了数据好看，被逼着和粉丝搞暧昧，违背本心',
+  '全年无休连轴转，生病都得硬撑着播，这哪是工作是卖命',
+  '公司拿着你的直播收益投资新人，你火了就被榨干价值',
+  '说是团队合作，其实暗地里抢资源抢镜头，勾心斗角没停过',
+  '年纪轻轻就被圈在直播间，社交圈窄得可怜，朋友都没几个'
 ];
 
 function createDanmu(text) {
@@ -74,7 +87,19 @@ function createDanmu(text) {
   const angle = (Math.random() - 0.5) * 45;
   danmu.style.transform = `rotate(${angle}deg)`;
 
-  danmu.style.color = Math.random() < 0.5 ? '#000000' : '#9D4EDD';
+  if(Math.random() < 0.5) {
+    // 白色弹幕: 白底黑字 + 细黑色外描边
+    danmu.style.color = '#000000';
+    danmu.style.border = '2px solid #FFFFFF';
+    danmu.style.background = '#FFFFFF';
+    danmu.style.boxShadow = '0 0 0 1px #000000';
+  } else {
+    // 紫色弹幕: 紫底黑字 + 细白色外描边
+    danmu.style.color = '#000000';
+    danmu.style.border = '2px solid #9D4EDD';
+    danmu.style.background = '#9D4EDD';
+    danmu.style.boxShadow = '0 0 0 1px #FFFFFF';
+  }
 
   document.body.appendChild(danmu);
 }
@@ -86,7 +111,8 @@ function triggerDanmu() {
   if (!hasTriggered) {
     hasTriggered = true;
     danmuList.forEach((text, i) => {
-      setTimeout(() => createDanmu(text), i * 600); // 给阅读时间
+      // 后面的弹幕速度稍微快一点
+      setTimeout(() => createDanmu(text), i * 400);
     });
   }
 }
