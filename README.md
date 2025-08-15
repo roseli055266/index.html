@@ -1,15 +1,8 @@
- <header>欢迎来到我的网站</header>
-  <main>
-    <h2>Hello World！</h2>
-    <p>这是我用 GitHub Pages 搭建的第一个网页 🎉</p>
-    <p>你也可以在这里添加图片、链接、弹幕等内容。</p>
-  </main>
-</body>
-</html>
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>动态弹幕示例</title>
 <style>
   body {
@@ -18,6 +11,8 @@
     background: #111;
     color: white;
     font-family: Arial, sans-serif;
+    position: relative;
+    height: 100vh;
   }
   .danmu {
     position: absolute;
@@ -44,12 +39,12 @@ function createDanmu() {
   const danmu = document.createElement('div');
   danmu.className = 'danmu';
   danmu.textContent = text;
-  danmu.style.top = Math.random() * window.innerHeight + 'px';
+  danmu.style.top = Math.random() * (window.innerHeight - 30) + 'px';
   danmu.style.left = window.innerWidth + 'px';
-  danmu.style.color = `hsl(${Math.random()*360}, 100%, 70%)`; // 随机颜色
+  danmu.style.color = `hsl(${Math.random()*360}, 100%, 70%)`;
   document.body.appendChild(danmu);
 
-  const speed = 2 + Math.random() * 3; // 弹幕速度
+  const speed = 2 + Math.random() * 3;
   const timer = setInterval(() => {
     const currentLeft = parseFloat(danmu.style.left);
     if (currentLeft + danmu.offsetWidth < 0) {
@@ -61,8 +56,10 @@ function createDanmu() {
   }, 16);
 }
 
-// 每 1 秒生成一条弹幕
-setInterval(createDanmu, 1000);
+// 页面加载完成后开始生成弹幕
+window.onload = function() {
+  setInterval(createDanmu, 1000);
+};
 </script>
 
 </body>
